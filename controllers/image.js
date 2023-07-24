@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const handleImage = (db) => (req, res) => {
   const { id } = req.body;
   db('users')
@@ -11,9 +13,9 @@ const handleImage = (db) => (req, res) => {
 };
 
 const returnClarifaiRequestOptions = (imageUrl) => {
-  const PAT = 'bad4b0795a46427abbf2035afefcfcae';
-  const USER_ID = 'busrak';
-  const APP_ID = 'smart-brain';
+  const PAT = process.env.CLARIFAI_PAT;
+  const USER_ID = process.env.CLARIFAI_USER_ID;
+  const APP_ID = process.env.CLARIFAI_APP_ID;
   const IMAGE_URL = imageUrl;
 
   const raw = JSON.stringify({
