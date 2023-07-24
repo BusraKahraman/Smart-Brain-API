@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fetch = require('node-fetch');
 
 const handleImage = (db) => (req, res) => {
   const { id } = req.body;
